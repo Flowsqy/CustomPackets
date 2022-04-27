@@ -1,7 +1,8 @@
 package fr.flowsqy.custompackets.server;
 
 import io.netty.bootstrap.ServerBootstrap;
-import io.netty.channel.*;
+import io.netty.channel.ChannelFuture;
+import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 
@@ -11,14 +12,12 @@ public class Server {
         final EventLoopGroup bossGroup = new NioEventLoopGroup();
         final EventLoopGroup workerGroup = new NioEventLoopGroup();
 
-        final ServerHandler handler = new ServerHandler();
-
         try {
             final ServerBootstrap bootstrap = new ServerBootstrap();
             bootstrap
                     .group(bossGroup, workerGroup)
                     .channel(NioServerSocketChannel.class)
-                    .childHandler(handler);
+                    .childHandler(new ServerChannelInitializer());
 
             ChannelFuture f = bootstrap.bind(8080).sync();
 
