@@ -26,10 +26,10 @@ public class Client {
             ChannelFuture f = bootstrap.connect(LOCALHOST, 8080).sync();
 
             for (int i = 0; i < 4; i++) {
-                sendPacket(f.channel());
+                sendPacket(f.channel(), (byte) i);
             }
 
-            sendPacket(f.channel()).addListener((ChannelFutureListener) future -> future.channel().close());
+            sendPacket(f.channel(), (byte) 0).addListener((ChannelFutureListener) future -> future.channel().close());
 
             f.channel().closeFuture().sync();
         } finally {
@@ -37,9 +37,9 @@ public class Client {
         }
     }
 
-    private static ChannelFuture sendPacket(Channel channel) {
+    private static ChannelFuture sendPacket(Channel channel, byte target) {
         ByteBuf buf = channel.alloc().buffer(18);
-        buf.writeByte(3);
+        buf.writeByte(target);
         buf.writeByte(7);
         buf.writeInt(12);
         buf.writeInt(6578679);

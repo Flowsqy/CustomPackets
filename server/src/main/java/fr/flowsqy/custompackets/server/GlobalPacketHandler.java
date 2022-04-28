@@ -25,5 +25,7 @@ public class GlobalPacketHandler extends ChannelInboundHandlerAdapter {
 
         // Forward the packet to the target
         // TODO sendPacket(globalPacket.header().targetId(), targetedPacket);
+
+        System.out.println("Forward to " + globalPacket.header().targetId() + ": " + targetedPacket);
     }
 }
