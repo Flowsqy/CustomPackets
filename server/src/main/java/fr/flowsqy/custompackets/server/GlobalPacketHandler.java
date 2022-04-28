@@ -20,6 +20,7 @@ public class GlobalPacketHandler extends ChannelInboundHandlerAdapter {
         // Send the global packet through the pipeline if it's for the server
         if (globalPacket.header().targetId() == SERVER_ID) {
             ctx.fireChannelRead(targetedPacket);
+            return;
         }
 
         // Forward the packet to the target
