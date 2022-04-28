@@ -9,16 +9,12 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>custompackets-server</artifactId>
+    <artifactId>custompackets-api</artifactId>
 
     <dependencies>
         <dependency>
             <groupId>io.netty</groupId>
             <artifactId>netty-all</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>fr.flowsqy.custompackets</groupId>
-            <artifactId>custompackets-api</artifactId>
         </dependency>
     </dependencies>
 

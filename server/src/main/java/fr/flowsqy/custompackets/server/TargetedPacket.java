@@ -1,6 +1,6 @@
 package fr.flowsqy.custompackets.server;
 
-import io.netty.buffer.ByteBuf;
+import fr.flowsqy.custompackets.api.Packet;
 
-public record TargetedPacket(byte id, int length, ByteBuf content) {
+public record TargetedPacket(byte id, int length, Packet packet) {
 }

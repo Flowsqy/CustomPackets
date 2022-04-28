@@ -10,6 +10,7 @@
     <modules>
         <module>client</module>
         <module>server</module>
+        <module>api</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -25,6 +26,11 @@
                 <groupId>io.netty</groupId>
                 <artifactId>netty-all</artifactId>
                 <version>4.1.76.Final</version>
+            </dependency>
+            <dependency>
+                <groupId>fr.flowsqy.custompackets</groupId>
+                <artifactId>custompackets-api</artifactId>
+                <version>1.0.0-SNAPSHOT</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

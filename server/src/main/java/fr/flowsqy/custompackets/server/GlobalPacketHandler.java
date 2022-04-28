@@ -11,7 +11,7 @@ public class GlobalPacketHandler extends ChannelInboundHandlerAdapter {
     public void channelRead(ChannelHandlerContext ctx, Object msg) {
         final GlobalPacket globalPacket = (GlobalPacket) msg;
 
-        final TargetedPacket targetedPacket = new TargetedPacket(
+        final TargetedRawPacket targetedPacket = new TargetedRawPacket(
                 globalPacket.header().packetId(),
                 globalPacket.header().packetLength(),
                 globalPacket.buffer()

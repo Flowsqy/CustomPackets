@@ -7,6 +7,7 @@ public class ServerPacketHandler extends ChannelInboundHandlerAdapter {
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-        final TargetedPacket packet = (TargetedPacket) msg;
+        final TargetedRawPacket packet = (TargetedRawPacket) msg;
+        System.out.println("Server packet " + packet);
     }
 }
